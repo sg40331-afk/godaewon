@@ -1,0 +1,2 @@
+import Link from "next/link";import{ArrowLeft}from"lucide-react";import{requireAdmin}from"@/app/admin-auth";import{PostEditor}from"../../post-editor";
+export const dynamic="force-dynamic";export default async function NewPost(){const{allowed}=await requireAdmin("/admin/posts/new");if(!allowed)return null;return <main className="admin-page"><div className="admin-shell editor-shell"><Link href="/admin" className="admin-back"><ArrowLeft/>글 목록</Link><div className="editor-heading"><span>NEW ARTICLE</span><h1>새 블로그 글 작성</h1></div><PostEditor/></div></main>}
