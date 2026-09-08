@@ -19,13 +19,19 @@ export default function Blog() {
   const list = posts.filter(
     (p) => (c === "전체" || p.c === c) && (p.t + p.d).includes(q),
   );
+  const categoryCounts = Object.fromEntries(
+    cats.slice(1).map((category) => [
+      category,
+      posts.filter((post) => post.c === category).length,
+    ]),
+  );
   return (
     <>
       <SiteHeader />
       <main>
         <div className="blog-hero">
           <div className="site-container">
-            <span className="kicker light">TAX LIBRARY · 60 ARTICLES</span>
+            <span className="kicker light">TAX LIBRARY · {posts.length} ARTICLES</span>
             <h1>세무 정보창고</h1>
             <p>
               사업의 시작부터 성장까지, 초보 사장님이 자주 묻는 세무 정보를 6개
@@ -47,13 +53,13 @@ export default function Blog() {
               <div>
                 <BookOpen />
                 <span>
-                  <strong>총 60개</strong>
+                  <strong>총 {posts.length}개</strong>
                   <small>세무 가이드</small>
                 </span>
               </div>
               {cats.slice(1).map((x) => (
                 <button key={x} onClick={() => setC(x)}>
-                  <strong>10</strong>
+                  <strong>{categoryCounts[x]}</strong>
                   <span>{x}</span>
                 </button>
               ))}
