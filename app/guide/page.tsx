@@ -1,3 +1,13 @@
-import Link from "next/link";import{ArrowRight,CheckCircle2}from"lucide-react";import{SiteFooter,SiteHeader}from"@/components/site-shell";
-const stages=[{n:"01",t:"사업자등록 전",q:"무엇부터 결정해야 할까요?",items:["개인사업자와 법인 선택","업종·업태 등록","간이과세와 일반과세"]},{n:"02",t:"사업 시작 후",q:"돈과 증빙은 어떻게 관리할까요?",items:["사업용 계좌와 카드","세금계산서 발행","직원 채용과 급여"]},{n:"03",t:"세금 신고",q:"언제 무엇을 신고해야 할까요?",items:["원천세와 부가가치세","종합소득세","법인세와 지방세"]},{n:"04",t:"성장과 변화",q:"사업이 커질 때 무엇을 준비할까요?",items:["직원·지점 확대","법인 전환 검토","절세와 자금계획"]}];
-export default function Guide(){return <><SiteHeader/><main><div className="sub-hero"><div className="site-container"><span className="kicker">BEGINNER&apos;S GUIDE</span><h1>초보 사장님 세무 가이드</h1><p>사업의 현재 단계를 선택해 필요한 내용을 순서대로 확인하세요.</p></div></div><section className="section"><div className="site-container stage-list">{stages.map(s=><article key={s.n}><div className="stage-no">{s.n}</div><div><span>{s.t}</span><h2>{s.q}</h2><ul>{s.items.map(x=><li key={x}><CheckCircle2/>{x}</li>)}</ul></div><Link href="/blog">관련 글 보기 <ArrowRight/></Link></article>)}</div></section></main><SiteFooter/></>}
+import Link from "next/link"
+import { ArrowRight, Building2, CheckCircle2, FileCheck2, ReceiptText, TrendingUp } from "lucide-react"
+import { SiteFooter, SiteHeader } from "@/components/site-shell"
+
+const stages = [{ n: "01", t: "사업자등록 전", q: "무엇부터 결정해야 할까요?", items: ["개인사업자와 법인 선택", "업종·업태 등록", "간이과세와 일반과세"] }, { n: "02", t: "사업 시작 후", q: "돈과 증빙은 어떻게 관리할까요?", items: ["사업용 계좌와 카드", "세금계산서 발행", "직원 채용과 급여"] }, { n: "03", t: "세금 신고", q: "언제 무엇을 신고해야 할까요?", items: ["원천세와 부가가치세", "종합소득세", "법인세와 지방세"] }, { n: "04", t: "성장과 변화", q: "사업이 커질 때 무엇을 준비할까요?", items: ["직원·지점 확대", "법인 전환 검토", "절세와 자금계획"] }]
+const heroStages = [{ icon: Building2, n: "01", t: "등록" }, { icon: ReceiptText, n: "02", t: "증빙" }, { icon: FileCheck2, n: "03", t: "신고" }, { icon: TrendingUp, n: "04", t: "성장" }]
+
+export default function Guide() {
+  return <><SiteHeader /><main>
+    <div className="sub-hero guide-subhero"><div className="site-container subhero-layout"><div className="subhero-copy"><span className="kicker">BEGINNER&apos;S GUIDE</span><h1>초보 사장님<br />세무 가이드</h1><p>사업의 현재 단계를 선택해 지금 필요한 세무 준비를 순서대로 확인하세요.</p></div><div className="guide-title-visual"><span className="guide-path" />{heroStages.map(({ icon: Icon, ...x }) => <div key={x.n}><small>{x.n}</small><span><Icon /></span><strong>{x.t}</strong></div>)}</div></div></div>
+    <section className="section"><div className="site-container stage-list">{stages.map(s => <article key={s.n}><div className="stage-no">{s.n}</div><div><span>{s.t}</span><h2>{s.q}</h2><ul>{s.items.map(x => <li key={x}><CheckCircle2 />{x}</li>)}</ul></div><Link href="/blog">관련 글 보기 <ArrowRight /></Link></article>)}</div></section>
+  </main><SiteFooter /></>
+}
