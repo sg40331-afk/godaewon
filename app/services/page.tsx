@@ -1,4 +1,4 @@
-’Á_ÁO”ó<·˛6ÔÆ·›Ùo›ö„∂⁄wû8ÔMπÛû^m∆€”Æusw<Îm˜ÔF∫Ÿ∑ımø6Û]|›˛ximport Link from "next/link"
+import Link from "next/link"
 import { ArrowRight, BookOpen, Calculator, Check, ClipboardCheck, Landmark, MessageSquareText, Users } from "lucide-react"
 import { SiteFooter, SiteHeader } from "@/components/site-shell"
 
