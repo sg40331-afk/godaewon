@@ -2,3 +2,9 @@
 @media(max-width:900px){.service-hero-grid,.service-process>.site-container{grid-template-columns:1fr}.service-image{height:380px}.service-cta{grid-template-columns:70px 1fr}.service-cta .button{grid-column:1/-1}.service-cta img{width:70px;height:70px}.service-summary{min-height:0}}
 @media(max-width:700px){.service-design-grid{grid-template-columns:1fr}}
 @media(max-width:600px){.service-hero{padding:50px 0}.service-hero h1{font-size:38px}.service-hero-actions{flex-direction:column}.service-image{height:290px}.image-note{left:12px;right:12px;bottom:12px}.process-steps{grid-template-columns:1fr}.service-design-card{border-radius:18px}.service-card-image{height:118px}.service-card-body{padding:23px 20px 25px}.service-process{padding:60px 0}.service-cta{margin:58px 14px;width:auto;padding:22px 18px}.service-cta h2{font-size:19px}}
+
+/* 서비스별 사진 대신 기존 아이콘 구성을 사용합니다. */
+.service-card-body{padding:30px}
+.service-card-top{display:flex;justify-content:space-between;align-items:center}
+.service-icon{width:54px;height:54px;border-radius:16px;background:var(--card-accent);display:grid;place-items:center;color:#246f5b}
+@media(max-width:600px){.service-card-body{padding:23px 20px 25px}}
